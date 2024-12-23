@@ -7,7 +7,7 @@ import cors from "cors";
 const app = express();
 
 app.use(cors());
-app.set("trust proxy", true);
+// app.set("trust proxy", true);
 // Set the network port
 const port = process.env.PORT || 3000;
 
