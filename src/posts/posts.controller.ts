@@ -1,11 +1,10 @@
 import { Request, Response } from "express";
 import { postSchema } from "./post.dto";
-import { Post, PrismaClient } from "@prisma/client";
-import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
+// import { Post, PrismaClient } from "@prisma/client";
+// import { PrismaClientKnownRequestError } from "@prisma/client/runtime/library";
 import { supabase } from "../db";
 
 // const prisma = new PrismaClient();
-const client = supabase;
 
 export class PostsController {
     async list(req: Request, res: Response) {
@@ -30,7 +29,7 @@ export class PostsController {
         res.status(200).send("Created");
     }
 
-    async update(req: Request, res: Response): Promise<Post | any> {
+    async update(req: Request, res: Response) {
         const postId = req.params.id;
         const schema = postSchema.validate(req.body);
 
